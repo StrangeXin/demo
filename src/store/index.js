@@ -6,13 +6,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    all: [],  //所有商品，从api里面异步获取
+    all: [],  //所有商品列表，从api里面异步获取
     items: []  // 已加入购物车的商品，格式如 [{ id, quantity }, { id, quantity }]
   },
   getters: {
     // 获取购物车商品
     cartProducts: (state) => {
       return state.items.map(({ id, quantity }) => {
+        // 从商品列表中，根据 id 获取商品信息
         const product = state.all.find(product => product.id === id)
         return {
           title: product.title,
