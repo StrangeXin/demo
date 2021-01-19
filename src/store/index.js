@@ -11,9 +11,9 @@ export default new Vuex.Store({
   },
   getters: {
     // 获取购物车商品
-    cartProducts: (state, getters, rootState) => {
+    cartProducts: (state) => {
       return state.items.map(({ id, quantity }) => {
-        const product = rootState.all.find(product => product.id === id)
+        const product = state.all.find(product => product.id === id)
         return {
           title: product.title,
           price: product.price,
