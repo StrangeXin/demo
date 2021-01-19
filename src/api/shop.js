@@ -11,16 +11,5 @@ export default {
   // 获取所有商品，异步模拟 ajax
   getProducts (cb) {
     setTimeout(() => cb(_products), 100)
-  },
-
-  // 结账，异步模拟 ajax
-  buyProducts (products, cb, errorCb) {
-    setTimeout(() => {
-      // simulate random checkout failure.
-      // 模拟可能失败的情况
-      (Math.random() > 0.5 || navigator.webdriver)
-        ? cb()
-        : errorCb()
-    }, 100)
   }
 }

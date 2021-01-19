@@ -4,8 +4,7 @@
       v-for="product in products"
       :key="product.id"
     >
-      {{ product.title }} - {{ product.price }}
-      （库存:{{ product.inventory }}）<!-- 这里可以自己加一下显示库存 -->
+      {{ product.title }} - {{ product.price }} （库存:{{ product.inventory }}）
       <br>
       <button
         :disabled="!product.inventory"
@@ -18,23 +17,22 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-
 export default {
-  computed: mapState({
+  computed: {
     // 获取所有商品
-    // products: (state) => state.products.all
-    products: (state) => state.all
-  }),
-  methods: mapActions([
-  // methods: mapActions('cart', [
+    products() {
+      return this.$store.state.all
+    }
+  },
+  methods: {
     // 添加商品到购物车
-    'addProductToCart'
-  ]),
-  created () {
+    addProductToCart(product) {
+      this.$store.dispatch('addProductToCart', product)
+    }
+  },
+  created() {
     // 加载所有商品
     this.$store.dispatch('getAllProducts')
-    // this.$store.dispatch('products/getAllProducts')
   }
 }
 </script>
