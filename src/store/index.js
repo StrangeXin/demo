@@ -53,12 +53,6 @@ export default new Vuex.Store({
       state.all = products
     },
 
-    // 减少某一个商品的库存（买一个，库存就相应的减少一个）
-    decrementProductInventory(state, { id }) {
-      const product = state.all.find(product => product.id === id)
-      product.inventory--
-    },
-
     // 商品初次添加到购物车
     pushProductToCart(state, { id }) {
       state.items.push({
@@ -71,6 +65,12 @@ export default new Vuex.Store({
     incrementItemQuantity(state, { id }) {
       const cartItem = state.items.find(item => item.id === id)
       cartItem.quantity++
+    },
+
+    // 减少某一个商品的库存（买一个，库存就相应的减少一个）
+    decrementProductInventory(state, { id }) {
+      const product = state.all.find(product => product.id === id)
+      product.inventory--
     },
   },
   modules: {
