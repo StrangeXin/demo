@@ -1,5 +1,6 @@
 import shop from '../../api/shop'
 export default {
+  namespaced: true,
   state: {
     all: [],  //所有商品，从api里面异步获取
   },

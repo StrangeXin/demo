@@ -21,7 +21,7 @@ export default {
   computed: {
     // 购物车的商品
     products() {
-      return this.$store.getters.cartProducts
+      return this.$store.getters['cart/cartProducts']
     }
   }
 }

@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state: {
     items: []  // 已加入购物车的商品，格式如 [{ id, quantity }, { id, quantity }]
   },
@@ -31,7 +32,7 @@ export default {
           commit('incrementItemQuantity', cartItem)
         }
         // remove 1 item from stock 减少库存
-        commit('decrementProductInventory', { id: product.id })
+        commit('product/decrementProductInventory', { id: product.id }, { root: true })
       }
     }
   },

@@ -27,12 +27,12 @@ export default {
   methods: {
     // 添加商品到购物车
     addProductToCart(product) {
-      this.$store.dispatch('addProductToCart', product)
+      this.$store.dispatch('cart/addProductToCart', product)
     }
   },
   created() {
     // 加载所有商品
-    this.$store.dispatch('getAllProducts')
+    this.$store.dispatch('product/getAllProducts')
   }
 }
 </script>
