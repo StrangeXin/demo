@@ -21,7 +21,7 @@ export default {
   computed: {
     // 获取所有商品
     products() {
-      return this.$store.state.all
+      return this.$store.state.product.all
     }
   },
   methods: {
