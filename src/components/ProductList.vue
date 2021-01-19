@@ -21,6 +21,7 @@ export default {
   computed: {
     // 获取所有商品
     products() {
+      console.log(this.$store.state)
       return this.$store.state.product.all
     }
   },

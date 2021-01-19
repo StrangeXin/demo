@@ -10,6 +10,6 @@ const _products = [
 export default {
   // 获取所有商品，异步模拟 ajax
   getProducts (cb) {
-    setTimeout(() => cb(_products), 100)
+    setTimeout(() => cb(_products), 1000)
   }
 }
